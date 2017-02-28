@@ -1,0 +1,25 @@
+{
+  "name": "algorithms-data-structure",
+  "version": "1.0.0",
+  "description": "My repository where I keep track of my algorithms and data structure solutions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianquach/algorithms-data-structure.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brianquach/algorithms-data-structure/issues"
+  },
+  "homepage": "https://github.com/brianquach/algorithms-data-structure#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jasmine-browser": "^1.7.1",
+    "jasmine": "^2.5.3",
+    "phantomjs": "^2.1.7"
+  }
+}
