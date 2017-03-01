@@ -1,5 +1,3 @@
-var algorithms = algorithms || {};
-
 describe('mergesort', function() {
   var mergesort = algorithms.mergesort;
 

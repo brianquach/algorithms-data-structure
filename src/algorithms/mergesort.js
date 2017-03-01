@@ -1,4 +1,5 @@
 var algorithms = algorithms || {};
+var Queue = dataStructures.Queue;
 
 algorithms.mergesort = (function() {
   'use strict';
@@ -34,7 +35,30 @@ algorithms.mergesort = (function() {
     return result.concat(left.concat(right));
   };
 
+  var mergesortIterative = function(arr) {
+    var splitIndex,
+      sortedArr,
+      divideStack = [],
+      mergeQueue = new Queue(),
+      tempArr,
+      left,
+      right;
+
+    divideStack.push(arr);
+    while (divideStack.length > 0) {
+      tempArr = divideStack.pop();
+      splitIndex = Math.floor(tempArr.length / 2);
+      left = tempArr.splice(0, splitIndex);
+      right = tempArr;
+      if (left.length === 1 && right.length === 1) {
+
+      }
+    }
+    return sortedArr;
+  };
+
   return {
-    run: mergesort
+    run: mergesort,
+    runIterative: mergesortIterative
   };
 })();
