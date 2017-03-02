@@ -1,5 +1,5 @@
 var algorithms = algorithms || {};
-var Queue = dataStructures.Queue;
+var Queue = dataStructures.queue.Queue;
 
 algorithms.mergesort = (function() {
   'use strict';
@@ -36,13 +36,21 @@ algorithms.mergesort = (function() {
   };
 
   var mergesortIterative = function(arr) {
-    var splitIndex,
-      sortedArr,
-      divideStack = [],
-      mergeQueue = new Queue(),
+    if (arr.length < 2) {
+      return arr;
+    }
+    var mergeQueue = breakArray(arr);
+    var sortedArr = mergeArrays(mergeQueue);
+    return sortedArr;
+  };
+
+  function breakArray(arr) {
+    var divideStack = [],
       tempArr,
       left,
-      right;
+      right,
+      splitIndex,
+      mergeQueue = new Queue();
 
     divideStack.push(arr);
     while (divideStack.length > 0) {
@@ -50,12 +58,38 @@ algorithms.mergesort = (function() {
       splitIndex = Math.floor(tempArr.length / 2);
       left = tempArr.splice(0, splitIndex);
       right = tempArr;
-      if (left.length === 1 && right.length === 1) {
-
+      if (left.length === 1) {
+        mergeQueue.push(left);
+      }
+      if (right.length === 1) {
+        mergeQueue.push(right);
+      }
+      if (right.length > 1) {
+        divideStack.push(right);
+      }
+      if (left.length > 1) {
+        divideStack.push(left);
       }
     }
-    return sortedArr;
-  };
+
+    return mergeQueue;
+  }
+
+  function mergeArrays(mergeQueue) {
+    var left = mergeQueue.pop();
+    var right = mergeQueue.pop();
+    var result;
+
+    while (right) {
+      result = merge(left, right);
+      mergeQueue.push(result);
+
+      left = mergeQueue.pop();
+      right = mergeQueue.pop();
+    }
+
+    return left;
+  }
 
   return {
     run: mergesort,

@@ -32,17 +32,21 @@ dataStructures.queue = (function () {
     },
     printForward: function() {
       var current = this.tail;
+      var s = [];
       while (current) {
-        console.log(current.val);
+        s.push(current.val);
         current = current.next;
       }
+      console.log(s.join(' '));
     },
     printBackward: function() {
       var current = this.head;
+      var s = [];
       while (current) {
-        console.log(current.val);
+        s.push(current.val);
         current = current.prev;
       }
+      console.log(s.join(' '));
     }
   };
 
