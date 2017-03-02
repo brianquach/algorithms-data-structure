@@ -58,17 +58,15 @@ algorithms.mergesort = (function() {
       splitIndex = Math.floor(tempArr.length / 2);
       left = tempArr.splice(0, splitIndex);
       right = tempArr;
-      if (left.length === 1) {
+      if (left.length <= 1) {
         mergeQueue.push(left);
-      }
-      if (right.length === 1) {
-        mergeQueue.push(right);
-      }
-      if (right.length > 1) {
-        divideStack.push(right);
-      }
-      if (left.length > 1) {
+      } else {
         divideStack.push(left);
+      }
+      if (right.length <= 1) {
+        mergeQueue.push(right);
+      } else {
+        divideStack.push(right);
       }
     }
 
