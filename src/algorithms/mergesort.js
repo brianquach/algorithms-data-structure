@@ -39,39 +39,14 @@ algorithms.mergesort = (function() {
     if (arr.length < 2) {
       return arr;
     }
-    var mergeQueue = breakArray(arr);
+    var mergeQueue = new Queue();
+    for (var i = 0, l = arr.length; i < l; i++) {
+      mergeQueue.push([arr[i]]);
+    }
+
     var sortedArr = mergeArrays(mergeQueue);
     return sortedArr;
   };
-
-  function breakArray(arr) {
-    var divideStack = [],
-      tempArr,
-      left,
-      right,
-      splitIndex,
-      mergeQueue = new Queue();
-
-    divideStack.push(arr);
-    while (divideStack.length > 0) {
-      tempArr = divideStack.pop();
-      splitIndex = Math.floor(tempArr.length / 2);
-      left = tempArr.splice(0, splitIndex);
-      right = tempArr;
-      if (left.length <= 1) {
-        mergeQueue.push(left);
-      } else {
-        divideStack.push(left);
-      }
-      if (right.length <= 1) {
-        mergeQueue.push(right);
-      } else {
-        divideStack.push(right);
-      }
-    }
-
-    return mergeQueue;
-  }
 
   function mergeArrays(mergeQueue) {
     var left = mergeQueue.pop();
