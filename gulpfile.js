@@ -18,6 +18,14 @@ gulp.task('queue', function() {
   runJasmine(filesToTest);
 });
 
+gulp.task('linkedlist', function() {
+  var filesToTest = [
+    'src/data-structures/linkedlist.js',
+    'spec/data-structures_spec/linkedlist_spec.js'
+  ];
+  runJasmine(filesToTest);
+});
+
 function runJasmine(filesToTest) {
   return gulp.src(filesToTest)
     .pipe(jasmineBrowser.specRunner({ console: true }))
