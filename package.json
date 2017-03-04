@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/brianquach/algorithms-data-structure#readme",
   "devDependencies": {
+    "browserify": "^14.1.0",
     "gulp": "^3.9.1",
     "gulp-jasmine-browser": "^1.7.1",
     "jasmine": "^2.5.3",
