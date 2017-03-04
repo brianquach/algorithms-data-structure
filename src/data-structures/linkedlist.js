@@ -1,6 +1,4 @@
-var dataStructures = dataStructures || {};
-
-dataStructures.linkedList = (function() {
+var linkedList = (function() {
   'use strict';
 
   var LinkedList = function() {
@@ -58,3 +56,5 @@ dataStructures.linkedList = (function() {
     LinkedList: LinkedList
   };
 })();
+
+module.exports = linkedList;

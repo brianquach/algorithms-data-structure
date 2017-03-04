@@ -1,8 +1,9 @@
-var algorithms = algorithms || {};
-var Queue = dataStructures.queue.Queue;
+var queue = require('../data-structures/queue.js');
 
-algorithms.mergesort = (function() {
+var mergesort = (function() {
   'use strict';
+
+  var Queue = queue.Queue;
 
   var mergesort = function(arr) {
     if (arr.length <= 1) {
@@ -69,3 +70,5 @@ algorithms.mergesort = (function() {
     runIterative: mergesortIterative
   };
 })();
+
+module.exports = mergesort;

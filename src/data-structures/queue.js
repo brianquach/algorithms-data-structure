@@ -1,6 +1,4 @@
-var dataStructures = dataStructures || {};
-
-dataStructures.queue = (function () {
+var queue = (function () {
   var Queue = function () {
       this.head = null;
       this.tail = null;
@@ -60,3 +58,5 @@ dataStructures.queue = (function () {
     Queue: Queue
   };
 })();
+
+module.exports = queue;
