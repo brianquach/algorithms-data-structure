@@ -16,6 +16,11 @@ gulp.task('linkedlist', function() {
   runJasmine(filesToTest);
 });
 
+gulp.task('largest-rectangle', function() {
+  var filesToTest = ['spec/algorithms_spec/largest_rectangle_spec.js'];
+  runJasmine(filesToTest);
+});
+
 function runJasmine(filesToTest) {
   return gulp.src(filesToTest)
     .pipe(jasmineBrowser.specRunner({ console: true }))
