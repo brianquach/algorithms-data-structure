@@ -1,25 +1,50 @@
 var gulp = require('gulp');
 var jasmineBrowser = require('gulp-jasmine-browser');
 
-gulp.task('mergesort', function() {
+var tests = [];
+/**
+ *  Sort tests
+ */
+var name = 'mergesort';
+gulp.task(name, function() {
   var filesToTest = ['spec/algorithms_spec/mergesort_spec.js'];
   runJasmine(filesToTest);
 });
+tests.push(name);
 
-gulp.task('queue', function() {
+name = 'quicksort';
+gulp.task(name, function() {
+  var filesToTest = ['spec/algorithms_spec/quicksort_spec.js'];
+  runJasmine(filesToTest);
+});
+tests.push(name);
+
+/**
+ *  Data structure tests
+ */
+name = 'queue';
+gulp.task(name, function() {
   var filesToTest = ['spec/data-structures_spec/queue_spec.js'];
   runJasmine(filesToTest);
 });
+tests.push(name);
 
-gulp.task('linkedlist', function() {
+name = 'linkedlist';
+gulp.task(name, function() {
   var filesToTest = ['spec/data-structures_spec/linkedlist_spec.js'];
   runJasmine(filesToTest);
 });
+tests.push(name);
 
-gulp.task('largest-rectangle', function() {
+/**
+ *  Algorithm tests
+ */
+name = 'largest-rectangle';
+gulp.task(name, function() {
   var filesToTest = ['spec/algorithms_spec/largest_rectangle_spec.js'];
   runJasmine(filesToTest);
 });
+tests.push(name);
 
 function runJasmine(filesToTest) {
   return gulp.src(filesToTest)
@@ -27,6 +52,6 @@ function runJasmine(filesToTest) {
     .pipe(jasmineBrowser.headless());
 }
 
-gulp.task('test:all', ['mergesort', 'queue', 'linkedlist']);
+gulp.task('all', tests);
 
-gulp.task('default', ['test:all']);
+gulp.task('default', ['all']);
